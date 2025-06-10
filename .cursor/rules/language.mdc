@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+The source code of the project is always English based. All variables and comments should be written in English. The web GUI should be written in German but with I18n in mind. So it should be easy to add a translation any time.
