@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Always check if you have a running `mix phx.server` somewhere. If not start it before starting your work. You need it to use Tidewave MCP which is very useful for this Phoenix Framework application.
