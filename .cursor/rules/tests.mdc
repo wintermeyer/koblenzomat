@@ -1,0 +1,7 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- When asks to impliment a new functionality always start with writing a test for it.
+- Aftter you implimneted the new functinality always run `mix test`, fix occoring problems and rerun `mix test` until all the tests are green. Do not lie about having run a test! Always run the tests. And fix the warnings too. After everything is green run `mix format`

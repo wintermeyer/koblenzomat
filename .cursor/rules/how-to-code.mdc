@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Only do the task which is assigned to you. 
+- Don't overthink it. 
+- Don't change or add functionality that is not related. 
+- Solve problems in a DRY way.
