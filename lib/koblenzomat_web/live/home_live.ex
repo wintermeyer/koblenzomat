@@ -41,7 +41,8 @@ defmodule KoblenzomatWeb.HomeLive do
         class="absolute inset-0 z-[-10] bg-cover bg-center"
         style="background-image: url('/images/koblenz-bg.png');"
         aria-hidden="true"
-      ></div>
+      >
+      </div>
       <div
         class="absolute inset-0 z-0 pointer-events-none"
         style="backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"
@@ -77,7 +78,9 @@ defmodule KoblenzomatWeb.HomeLive do
           </span>
           <div class="mt-2 flex flex-wrap gap-2">
             <%= for hashtag <- (Enum.at(@theses, @current) && Enum.at(@theses, @current).hashtags) || [] do %>
-              <span class="inline-block bg-cyan-100 text-cyan-800 rounded px-2 py-1 text-xs font-semibold">#<%= hashtag.name %></span>
+              <span class="inline-block bg-cyan-100 text-cyan-800 rounded px-2 py-1 text-xs font-semibold">
+                #{hashtag.name}
+              </span>
             <% end %>
           </div>
         </div>
@@ -124,6 +127,13 @@ defmodule KoblenzomatWeb.HomeLive do
           <% end %>
         </ol>
       </nav>
+      <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 text-center z-10 pointer-events-none">
+        <span class="text-xs text-white/70 select-none" style="font-size: 0.7rem;">
+          {gettext(
+            "Alle Antworten werden anonymisiert gespeichert und können von jedem in einer Gesamtstatistik eingesehen werden."
+          )}
+        </span>
+      </div>
     </main>
     """
   end
