@@ -8,7 +8,7 @@ defmodule Koblenzomat.Thesis do
     field :name, :string
     field :position, :integer
     belongs_to :questionnaire, Koblenzomat.Questionnaire, type: :binary_id
-
+    many_to_many :hashtags, Koblenzomat.Hashtag, join_through: "hashtags_to_theses"
     timestamps(type: :utc_datetime)
   end
 

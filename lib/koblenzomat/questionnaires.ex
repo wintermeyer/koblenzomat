@@ -34,6 +34,6 @@ defmodule Koblenzomat.Questionnaires do
   end
 
   def list_questionnaires_with_theses do
-    Repo.all(from q in Questionnaire, order_by: q.id, preload: [:theses])
+    Repo.all(from q in Questionnaire, order_by: q.id, preload: [theses: [:hashtags]])
   end
 end

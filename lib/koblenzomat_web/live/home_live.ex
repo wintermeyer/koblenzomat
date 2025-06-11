@@ -75,6 +75,11 @@ defmodule KoblenzomatWeb.HomeLive do
             {(Enum.at(@theses, @current) && Enum.at(@theses, @current).name) ||
               gettext("No more theses.")}
           </span>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <%= for hashtag <- (Enum.at(@theses, @current) && Enum.at(@theses, @current).hashtags) || [] do %>
+              <span class="inline-block bg-cyan-100 text-cyan-800 rounded px-2 py-1 text-xs font-semibold">#<%= hashtag.name %></span>
+            <% end %>
+          </div>
         </div>
         <div
           class="flex flex-col sm:flex-row gap-4 w-full justify-center mb-4"
@@ -104,15 +109,6 @@ defmodule KoblenzomatWeb.HomeLive do
             aria-label="Stimme zu"
           >
             👍 {gettext("stimme zu")}
-          </button>
-        </div>
-        <div class="w-full text-right">
-          <button
-            phx-click="next"
-            class="text-slate-500 hover:text-slate-800 font-medium transition underline focus:outline focus:outline-2 focus:outline-cyan-700"
-            aria-label="These überspringen"
-          >
-            {gettext("These überspringen")} &rarr;
           </button>
         </div>
       </section>

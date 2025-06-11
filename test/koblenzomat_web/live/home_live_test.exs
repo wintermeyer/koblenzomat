@@ -9,7 +9,6 @@ defmodule KoblenzomatWeb.HomeLiveTest do
     assert has_element?(view, "button", "stimme zu")
     assert has_element?(view, "button", "neutral")
     assert has_element?(view, "button", "stimme nicht zu")
-    assert has_element?(view, "button", "These überspringen")
   end
 
   test "clicking a choice advances to the next thesis", %{conn: conn} do
