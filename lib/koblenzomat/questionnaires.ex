@@ -3,7 +3,7 @@ defmodule Koblenzomat.Questionnaires do
   Context for Questionnaires, Theses, Hashtags, and their associations.
   """
 
-  alias Koblenzomat.{Repo, Thesis}
+  alias Koblenzomat.{Repo, Thesis, Questionnaire}
   import Ecto.Query
 
   def create_thesis(attrs) do
@@ -31,5 +31,9 @@ defmodule Koblenzomat.Questionnaires do
     %Thesis{}
     |> Thesis.changeset(attrs)
     |> Repo.insert()
+  end
+
+  def list_questionnaires_with_theses do
+    Repo.all(from q in Questionnaire, order_by: q.id, preload: [:theses])
   end
 end

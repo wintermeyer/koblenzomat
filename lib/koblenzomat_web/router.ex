@@ -17,7 +17,8 @@ defmodule KoblenzomatWeb.Router do
   scope "/", KoblenzomatWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", HomeLive, :index
+    # get "/", PageController, :home # moved to test only
   end
 
   # Other scopes may use custom stacks.
