@@ -11,6 +11,7 @@ defmodule Koblenzomat.Questionnaires do
       case Map.get(attrs, :position) do
         nil ->
           _questionnaire_id = Map.fetch!(attrs, :questionnaire_id)
+
           max =
             Repo.one(
               from(t in Thesis,
@@ -18,12 +19,15 @@ defmodule Koblenzomat.Questionnaires do
                 select: max(t.position)
               )
             ) || 0
+
           max + 1
+
         pos ->
           pos
       end
 
     attrs = Map.put(attrs, :position, position)
+
     %Thesis{}
     |> Thesis.changeset(attrs)
     |> Repo.insert()

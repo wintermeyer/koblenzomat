@@ -4,8 +4,14 @@
   style="background: url('/images/koblenz-bg.png') center center / cover no-repeat fixed;"
   aria-hidden="true"
 >
+  <!-- Blurred background overlay -->
+  <div
+    class="absolute inset-0 z-0 pointer-events-none"
+    style="backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"
+  >
+  </div>
   <!-- Overlay für bessere Lesbarkeit -->
-  <div class="absolute inset-0 bg-black/30 z-0" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-black/30 z-10" aria-hidden="true"></div>
   
 <!-- Header -->
   <header class="w-full max-w-4xl mx-auto text-center pt-16 pb-8 z-10 relative">

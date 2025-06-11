@@ -67,7 +67,13 @@ defmodule Koblenzomat.QuestionnairesTest do
       questionnaire = Koblenzomat.Repo.insert!(%Koblenzomat.Questionnaire{name: "QAuto"})
       attrs = %{name: "T1", questionnaire_id: questionnaire.id}
       {:ok, thesis1} = Koblenzomat.Questionnaires.create_thesis(attrs)
-      {:ok, thesis2} = Koblenzomat.Questionnaires.create_thesis(%{name: "T2", questionnaire_id: questionnaire.id})
+
+      {:ok, thesis2} =
+        Koblenzomat.Questionnaires.create_thesis(%{
+          name: "T2",
+          questionnaire_id: questionnaire.id
+        })
+
       assert thesis1.position == 1
       assert thesis2.position == 2
     end

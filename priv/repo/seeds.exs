@@ -119,7 +119,12 @@ questionnaire = Repo.insert!(%Koblenzomat.Questionnaire{name: "Seed Questionnair
 
 # Insert theses and associations
 for {thesis_text, tags} <- seed_data do
-  {:ok, thesis} = Koblenzomat.Questionnaires.create_thesis(%{name: thesis_text, questionnaire_id: questionnaire.id})
+  {:ok, thesis} =
+    Koblenzomat.Questionnaires.create_thesis(%{
+      name: thesis_text,
+      questionnaire_id: questionnaire.id
+    })
+
   for tag <- tags do
     Repo.insert!(%HashtagsToTheses{thesis_id: thesis.id, hashtag_id: hashtag_map[tag]})
   end
