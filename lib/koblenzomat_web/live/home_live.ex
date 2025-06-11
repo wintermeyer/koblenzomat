@@ -1,7 +1,7 @@
 defmodule KoblenzomatWeb.HomeLive do
   use KoblenzomatWeb, :live_view
 
-  alias Koblenzomat.{Questionnaires, Thesis}
+  alias Koblenzomat.Voting
 
   @impl true
   def mount(_params, _session, socket) do
@@ -23,8 +23,8 @@ defmodule KoblenzomatWeb.HomeLive do
   end
 
   defp load_and_shuffle_theses do
-    # Get the first questionnaire and its theses, shuffle them
-    case Questionnaires.list_questionnaires_with_theses() do
+    # Get the first election and its theses, shuffle them
+    case Voting.list_elections_with_theses() do
       [%{theses: theses} | _] -> Enum.shuffle(theses)
       _ -> []
     end

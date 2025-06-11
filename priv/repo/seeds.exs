@@ -114,15 +114,15 @@ hashtags =
 
 hashtag_map = Map.new(hashtags, &{&1.name, &1.id})
 
-# Create a questionnaire for all theses
-questionnaire = Repo.insert!(%Koblenzomat.Questionnaire{name: "Seed Questionnaire"})
+# Create an election for all theses
+election = Repo.insert!(%Koblenzomat.Election{name: "Seed Election"})
 
 # Insert theses and associations
 for {thesis_text, tags} <- seed_data do
   {:ok, thesis} =
-    Koblenzomat.Questionnaires.create_thesis(%{
+    Koblenzomat.Voting.create_thesis(%{
       name: thesis_text,
-      questionnaire_id: questionnaire.id
+      election_id: election.id
     })
 
   for tag <- tags do

@@ -99,7 +99,7 @@ defmodule Koblenzomat.SeedsTest do
   ]
 
   test "seeds can be inserted and associated" do
-    questionnaire = Repo.insert!(%Koblenzomat.Questionnaire{name: "Seed Q"})
+    election = Repo.insert!(%Koblenzomat.Election{name: "Seed Q"})
     # Insert hashtags
     hashtags =
       @seed_data
@@ -121,7 +121,7 @@ defmodule Koblenzomat.SeedsTest do
     Enum.with_index(@seed_data, 1)
     |> Enum.each(fn {{thesis_text, tags}, pos} ->
       Repo.insert!(
-        %Thesis{name: thesis_text, position: pos, questionnaire_id: questionnaire.id},
+        %Thesis{name: thesis_text, position: pos, election_id: election.id},
         on_conflict: :nothing,
         conflict_target: [:name]
       )
